@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>First Angular App</title>
+  </head>
+  <body>
+    <h1>First Angular Example</h1>
+    <!-- <input
+      type="text"
+      value="{{firstName}}"
+      #inputFirstname
+      (keyup.enter)="changeFirstName(inputFirstname.value)"
+    /> -->
+    <input [(ngModel)]="firstName">
+    <h3>
+      myFirstName is :{{ firstName }} and myLastName is:{{ lastName }} and my
+      Age is {{ age }}
+    </h3>
+<img src="{{imageURL}}" width="400px" height="300px"/>
+<img [src]="imageURL" width="400px" height="300px"/>
+
+    <button (click)="changeLastName()">Change LastName</button>
+    <h2>{{ getFullName() }}</h2>
+    <h3 [class.red-color]="invalidAge()" [class.green-color]="!invalidAge()">
+      Age is {{ age }}
+    </h3>
+<h3 *ngIf="invalidAge()">Sorry Your Age is above 25</h3>
+<h3 [hidden]="!invalidAge()">Sorry Your Age is above 25</h3>
+
+hidden (more faster than *ngIf),exist in html(display and hidden) but *ngif (add or remove from html)
+
+    <button (click)="incrementAge()">Increment</button>
+    <button (click)="decrementAge()">Decrement</button>
+
+    <ul>
+      <li *ngFor="let course of courses; let i=index">{{i+1}} - {{course}}</li>
+    </ul>
+  </body>
+</html>

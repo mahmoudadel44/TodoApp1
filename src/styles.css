@@ -1,1 +1,133 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+body {
+  background: #ad5389; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #3c1053,
+    #ad5389
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #3c1053,
+    #ad5389
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.TodoContent h1 {
+  font-style: italic;
+  font-family: "Style Script", cursive;
+}
+@media (min-width: 992px) {
+  .TodoContent .card {
+    width: 850px;
+  }
+}
+.TodoContent .todoImgContainer {
+  display: flex;
+  justify-content: center;
+}
+.TodoContent .todoImgContainer img {
+  border-radius: 18px;
+  width: 600px;
+  height: 300px;
+}
+@media (max-width: 992px) {
+  .TodoContent .todoImgContainer img {
+    width: 385px;
+  }
+}
+.TodoContent .form-control:focus,
+.TodoContent .btn:focus,
+.form-check-input:focus {
+  box-shadow: none;
+  border-color: #ced4da;
+}
+.TodoContent .btn-success {
+  margin-left: 20px;
+}
+@media (max-width: 992px) {
+  .TodoContent .btn-success {
+    margin-left: 10px;
+  }
+}
+.TodoContent .btn-success span,
+.TodoContent .btn-danger span,
+.TodoContent .todoTitle,
+.form-control,
+.TodoContent .date {
+  font-family: "Caveat", cursive;
+  font-family: "Neuton", serif;
+  font-size: 18px;
+  font-weight: bold;
+}
+.TodoContent .fa-trash {
+  margin-right: 6px;
+}
+.TodoContent .fa-plus-circle {
+  margin-right: 9px;
+  font-size: 21px;
+}
+
+.TodoContent .contentOfNote {
+  width: 91%;
+  color: #fff;
+  background: #283048; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #859398,
+    #283048
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #859398,
+    #283048
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  height: 52px;
+  padding: 13px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+.clearWithPending {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 91%;
+  margin: auto;
+  margin-top: 20px;
+}
+@media (max-width: 992px) {
+.clearWithPending{
+  flex-direction: column;
+}
+}
+.TodoContent .noPending {
+  font-family: "Caveat", cursive;
+  font-family: "Neuton", serif;
+  font-size: 18px;
+}
+.TodoContent .deleteAll {
+  min-width: 152px;
+}
+@media (max-width: 992px) {
+.TodoContent .deleteAll {
+ margin-top: 20px;
+}
+}
+.taskDone {
+  text-decoration-line: line-through;
+  font-style: italic;
+}
+
+.bg-success,
+.bg-danger {
+  padding: 2px 20px;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.markTitle {
+  text-decoration-line: line-through;
+}

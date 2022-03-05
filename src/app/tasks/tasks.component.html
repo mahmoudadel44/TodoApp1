@@ -1,0 +1,77 @@
+<div class="TodoContent mt-5 p-3">
+  <div class="container">
+    <div class="card m-auto p-3">
+      <div class="date">{{ date | date: "dd - MM - yyyy" }}</div>
+
+      <h1 class="text-center">Todo App</h1>
+      <div class="todoImgContainer">
+        <img
+          src="../../assets/todoimg.jpg"
+          class="text-center"
+        />
+      </div>
+      <div class="my-3 d-flex justify-content-center">
+        <input
+          type="email"
+          class="form-control mr-2 w-75"
+          placeholder="Start Typing:"
+          #inputTitle
+          (keyup.enter)="add(inputTitle.value); inputTitle.value = ''"
+        />
+        <button
+          type="button"
+          class="btn btn-success"
+          (click)="add(inputTitle.value); inputTitle.value = ''"
+        >
+          <i class="fa fa-plus-circle mr-2"></i><span>Add</span>
+        </button>
+      </div>
+
+      <div
+        class="d-flex m-auto justify-content-between contentOfNote mt-2"
+        *ngFor="let task of tasks; let i = index"
+      >
+        <div class="d-flex">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="flexCheckDefault"
+              [checked]="task.IsDone"
+              (click)="updateTask(task)"
+            />
+          </div>
+          <div class="todoTitle" [class.markTitle]="task.IsDone">
+            <a [routerLink]="['/details',task.ID]">{{
+              task.Title | uppercase | maxLength: 5
+            }}</a>
+          </div>
+        </div>
+        <button type="button" class="btn btn-danger" (click)="deleteTask(i)">
+          <i class="fa fa-trash" aria-hidden="true"></i>
+          <span>Delete</span>
+        </button>
+      </div>
+      <!-- ////////////////////////////////////////////////////////////////////////// -->
+      <div class="clearWithPending">
+        <div *ngIf="getPendingTasks() > 0">
+          You Have
+          <span
+            [class.bg-danger]="getPendingTasks() > 3"
+            [class.bg-success]="getPendingTasks() <= 3"
+            >{{ getPendingTasks() }}</span
+          >
+          Pending Tasks
+        </div>
+        <div *ngIf="getPendingTasks() <= 0" class="noPending">
+          There Is No Pending Tasks
+        </div>
+        <button type="button" class="btn btn-danger deleteAll">
+          <i class="fa fa-trash" aria-hidden="true"></i>
+          <span (click)="deleteAllTasks()">Delete All Tasks</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
